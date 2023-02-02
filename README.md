@@ -126,7 +126,10 @@ Rights statement comes from [rightsstatements.org](https://rightsstatements.org/
 
 ## Resources
 For more information about this collection visit the webpage at the CU Boulder ArchivesSpace; []().
+
 [History - As Told by Students](https://www.colorado.edu/cmcinow/history-told-students)
+[What Happened to the Colorado Daily?](https://www.colorado.edu/coloradan/2019/06/03/column-what-happened-colorado-daily)
+[About Us - Colorado Daily](https://www.coloradodaily.com/about-us/)
 ## Notes
 Please note that the metadata contained in this repository may not be the most up to date, but is updated on a continuing basis.
 
