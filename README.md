@@ -125,7 +125,7 @@ Statement in collection:
 Rights statement comes from [rightsstatements.org](https://rightsstatements.org/page/1.0/?language=en)
 
 ## Resources
-For more information about this collection visit the webpage at the CU Boulder ArchivesSpace; []().<br />
+For more information about this collection visit the finding aid at the CU Boulder [ArchivesSpace webpage](https://archives.colorado.edu/repositories/2/resources/1066).<br />
 
 [History - As Told by Students](https://www.colorado.edu/cmcinow/history-told-students)<br />
 [What Happened to the Colorado Daily?](https://www.colorado.edu/coloradan/2019/06/03/column-what-happened-colorado-daily)<br />
