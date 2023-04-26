@@ -13,36 +13,45 @@ from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 openai.api_key = ''
 
 metadata = []
-basedir = '/Users/erra1244/Desktop/issues_XML/'
+basedir = '/Users/erra1244/Desktop/codaily/issues_XML/'
 rows = ['test']
+
+bibData = {}
 
 for mydir in os.listdir(basedir):
     if os.path.isdir(os.path.join(basedir, mydir)):
         row = []
         for myfile in os.listdir(os.path.join(basedir, mydir)):
-            if 'mets' not in myfile:
-                result = os.path.join(basedir, mydir, myfile)
-                xml = open(result, 'r')
-                tree = ET.parse(xml)
-                root = tree.getroot()
-                thing = ''
-                for tag in root.findall('.//*[@CONTENT]'):
-                    x = tag.attrib['CONTENT'] + ' '
-                    thing += x
-                    completion = openai.ChatCompletion.create(
-                        model="gpt-3.5-turbo",
-                        messages=[{"role": "user", "content": "can you clean this text:" + thing}]
-                    )
-                    print(completion.choices[0].message.content)
-                    # print(thing)
+            # if 'mets' not in myfile:
+            #     result = os.path.join(basedir, mydir, myfile)
+            #     xml = open(result, 'r')
+            #     tree = ET.parse(xml)
+            #     root = tree.getroot()
+            #     thing = ''
+            #     for tag in root.findall('.//*[@CONTENT]'):
+            #         x = tag.attrib['CONTENT'] + ' '
+            #         thing += x
+            #     bibData['ocr'] = thing
 
+                
         		
-            # if myfile.endswith('xml'):
-            # 	print(myfile)
-    #              result = process_xml(os.path.join(basedir, mydir, myfile))
-    #              row[i_dont_know_what_you_are_doing] = do_something_with_result(result)
-    #     rows.append(row)
+            if 'mets' in myfile:
+            	result = os.path.join(basedir, mydir, myfile)
+            	bibxml = open(result, 'r')
+            	tree = ET.parse(bibxml)
+            	root = tree.getroot()
+            	ns = {'mets':'http://www.loc.gov/METS','mods':'http://www.loc.gov/mods/v3'}
+            	if ET.ParseError:
+            		print(myfile)
+            	# for x in root:
+            	# 	thing=x
+        		
+            		
+            	# print(myfile)
+            	# for title in root.findall('mods:title',ns):
+            	# 	print(title.text)
 
+# print(bibData)
 
 # write_csv(rows)
 
@@ -68,6 +77,14 @@ for mydir in os.listdir(basedir):
 
 
 
+# with open(outfile_path, 'w') as resultsFile:
+#         field_names=['title', 'ocr']
+
+
+#         writer = csv.DictWriter(resultsFile, field_names, extrasaction='ignore',lineterminator='\n')
+#         writer.writeheader()
+#         for out_row in out_rows:
+#             writer.writerow(out_row)
 
 
 
