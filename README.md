@@ -148,4 +148,5 @@ For more information about this collection visit the finding aid at the CU Bould
 ## Notes
 Please note that the metadata contained in this repository may be updated at any time.
 
+The metadata with the OCR transcriptions is too large to share here.
 
