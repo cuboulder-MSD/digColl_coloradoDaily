@@ -15,12 +15,16 @@ from os.path import isfile, join
 from xml.etree.ElementTree import Element, SubElement, Comment, tostring
 
 
+#this script has a whole bunch of trash in it bc it represents various stages of requirements. the commente out chunks at the bottom are 
+#probably not totally finished
+
 
 basedir = '/Users/erra1244/Desktop/issues_XML/'
 with open('ocrdata.csv', 'w') as csvfile:
     writer = csv.writer(csvfile, lineterminator='\n')
-    writer.writerow(("filename", "ocr"))
-
+    writer.writerow(("filename", "ocr")
+    #this part reads the file directory structure which was topfolder/year/issue/xmlfiles to parse it into one row in the csv
+    #each issue had multiple xml files that needed to be joined in the csv
     for yeardir in os.listdir(basedir):
         if yeardir.startswith('.'):
             continue
@@ -34,8 +38,9 @@ with open('ocrdata.csv', 'w') as csvfile:
                 if myfile.startswith('.'):
                     continue
                 # print(os.path.join(basedir, yeardir, issue, myfile))
+                #ignoring the xml that didnt have ocr
                 if 'mets' not in myfile:
-
+                    #parsing xml for the attribute that had the ocr text and joining them together
                     result = os.path.join(basedir, yeardir, issue, myfile)
                     xml = open(result, 'r')
                     tree = ET.parse(xml)
@@ -45,13 +50,15 @@ with open('ocrdata.csv', 'w') as csvfile:
                         thing += x
                     # for tag in root.findall('.//fileName'):
                     #     print(tag.text)
-
+            #prepping columns for the csv
             newmonth = issue.replace('_','-')
             date = yeardir + '-' + newmonth
             row=(date,thing)
             writer.writerow(row)
 
-bibData = {}
+                    
+#this stuff was almost done before we learned we didnt need it.
+# bibData = {}
 
 # basedir = '/Users/erra1244/Desktop/issues_XML/'
 # with open('ocrdata.csv', 'w') as csvfile:
